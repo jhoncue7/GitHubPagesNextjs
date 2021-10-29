@@ -26,10 +26,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install packages
+        working-directory: 'docs'
         run: npm ci
-      - name: Build project
+      - name: Build project        
+        working-directory: 'docs'
         run: npm run build
       - name: Export static files
+        working-directory: 'docs'
         run: npm run export
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
